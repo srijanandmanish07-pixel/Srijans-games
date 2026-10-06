@@ -3,43 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Srijan's Games - Ultimate Gaming Hub</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Srijan's Games | Ultimate Neon Arcade</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --bg-primary: #0b0f19;
-            --bg-secondary: #121826;
-            --bg-card: #1a2234;
-            --accent: #6366f1;
-            --accent-hover: #4f46e5;
-            --text-main: #f3f4f6;
-            --text-muted: #9ca3af;
-            --border: #2d3748;
-            --success: #10b981;
-            --danger: #ef4444;
-            --warning: #f59e0b;
+            --bg-deep: #05070f;
+            --bg-panel: #0e1424;
+            --bg-card: #151d33;
+            --accent-neon: #00f0ff;
+            --accent-purple: #b000ff;
+            --accent-pink: #ff007f;
+            --text-main: #ffffff;
+            --text-muted: #8a99ad;
+            --border: rgba(0, 240, 255, 0.15);
+            --glow: 0 0 20px rgba(0, 240, 255, 0.25);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Outfit', sans-serif;
         }
 
         body {
-            background-color: var(--bg-primary);
+            background-color: var(--bg-deep);
             color: var(--text-main);
             min-height: 100vh;
             display: flex;
             overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(176, 0, 255, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(0, 240, 255, 0.08) 0%, transparent 40%);
         }
 
         /* Sidebar Navigation */
         aside {
-            width: 260px;
-            background-color: var(--bg-secondary);
+            width: 280px;
+            background-color: var(--bg-panel);
             border-right: 1px solid var(--border);
             display: flex;
             flex-direction: column;
@@ -50,52 +52,62 @@
         }
 
         .logo-area {
-            padding: 24px;
+            padding: 28px 24px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
             border-bottom: 1px solid var(--border);
         }
 
-        .logo-area i {
-            font-size: 28px;
-            color: var(--accent);
+        .logo-icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, var(--accent-neon), var(--accent-purple));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: white;
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
         }
 
         .logo-area h1 {
             font-size: 20px;
-            font-weight: 700;
-            background: linear-gradient(135deg, #6366f1, #a855f7);
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            background: linear-gradient(135deg, #fff, var(--accent-neon));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .nav-links {
             list-style: none;
-            padding: 20px 12px;
+            padding: 24px 16px;
             flex-grow: 1;
-        }
-
-        .nav-links li {
-            margin-bottom: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
         }
 
         .nav-links a {
             display: flex;
             align-items: center;
             gap: 14px;
-            padding: 12px 16px;
+            padding: 14px 18px;
             color: var(--text-muted);
             text-decoration: none;
             font-weight: 500;
-            border-radius: 10px;
-            transition: all 0.2s ease;
+            font-size: 15px;
+            border-radius: 12px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .nav-links a:hover, .nav-links a.active {
-            background-color: var(--accent);
-            color: white;
-            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+            background: linear-gradient(90deg, rgba(0, 240, 255, 0.15), transparent);
+            color: var(--accent-neon);
+            border-left: 4px solid var(--accent-neon);
+            box-shadow: inset 0 0 15px rgba(0, 240, 255, 0.05);
         }
 
         .nav-links a i {
@@ -106,7 +118,7 @@
 
         /* Main Content Wrapper */
         main {
-            margin-left: 260px;
+            margin-left: 280px;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
@@ -115,13 +127,14 @@
 
         /* Top Header */
         header {
-            height: 76px;
-            background-color: var(--bg-secondary);
+            height: 80px;
+            background-color: rgba(14, 20, 36, 0.8);
+            backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border);
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 36px;
+            padding: 0 40px;
             position: sticky;
             top: 0;
             z-index: 90;
@@ -132,10 +145,16 @@
             align-items: center;
             background-color: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 8px 16px;
-            width: 320px;
-            gap: 10px;
+            border-radius: 14px;
+            padding: 10px 18px;
+            width: 360px;
+            gap: 12px;
+            transition: all 0.3s;
+        }
+
+        .search-bar:focus-within {
+            border-color: var(--accent-neon);
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
         }
 
         .search-bar input {
@@ -154,352 +173,488 @@
         .user-profile {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
+            background: var(--bg-card);
+            padding: 6px 16px 6px 6px;
+            border-radius: 50px;
+            border: 1px solid var(--border);
         }
 
         .user-avatar {
-            width: 40px;
-            height: 40px;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #6366f1, #ec4899);
+            background: linear-gradient(135deg, var(--accent-neon), var(--accent-purple));
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
             font-size: 16px;
+            color: white;
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
         }
 
         /* Content Views */
         .view-section {
             display: none;
-            padding: 32px 36px;
+            padding: 40px;
             flex-grow: 1;
+            animation: fadeIn 0.4s ease forwards;
         }
 
         .view-section.active {
             display: block;
         }
 
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         /* Hero Banner */
         .hero {
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(168, 85, 247, 0.15));
+            background: linear-gradient(135deg, rgba(21, 29, 51, 0.9), rgba(14, 20, 36, 0.9)), 
+                        url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
             border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 40px;
+            border-radius: 24px;
+            padding: 48px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 36px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(90deg, rgba(5,7,15,0.9) 20%, transparent 80%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
         }
 
         .hero-content h2 {
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 12px;
+            font-size: 38px;
+            font-weight: 800;
+            margin-bottom: 14px;
+            line-height: 1.2;
+            background: linear-gradient(135deg, #fff, var(--accent-neon));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .hero-content p {
             color: var(--text-muted);
-            font-size: 15px;
-            max-width: 550px;
-            margin-bottom: 24px;
+            font-size: 16px;
+            margin-bottom: 28px;
+            line-height: 1.6;
         }
 
-        .btn {
-            background-color: var(--accent);
+        .btn-neon {
+            background: linear-gradient(135deg, var(--accent-neon), var(--accent-purple));
             color: white;
             border: none;
-            padding: 12px 24px;
-            border-radius: 10px;
-            font-weight: 600;
+            padding: 14px 28px;
+            border-radius: 14px;
+            font-weight: 700;
+            font-size: 15px;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
         }
 
-        .btn:hover {
-            background-color: var(--accent-hover);
-            transform: translateY(-2px);
+        .btn-neon:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.7);
         }
 
         /* Section Titles */
         .section-title {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 20px;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 24px;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            letter-spacing: 0.5px;
         }
 
         /* Game Grid */
         .game-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 24px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 28px;
             margin-bottom: 40px;
         }
 
         .game-card {
             background-color: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 16px;
+            border-radius: 20px;
             overflow: hidden;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
             cursor: pointer;
+            position: relative;
         }
 
         .game-card:hover {
-            transform: translateY(-6px);
-            border-color: var(--accent);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            transform: translateY(-8px);
+            border-color: var(--accent-neon);
+            box-shadow: 0 15px 35px rgba(0, 240, 255, 0.2);
         }
 
         .game-thumb {
-            height: 160px;
+            height: 180px;
             background-size: cover;
             background-position: center;
             position: relative;
             display: flex;
             align-items: flex-end;
-            padding: 12px;
+            padding: 16px;
+        }
+
+        .game-thumb::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(21, 29, 51, 0.9), transparent);
         }
 
         .game-badge {
-            background-color: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(4px);
-            padding: 4px 10px;
-            border-radius: 6px;
+            position: relative;
+            z-index: 2;
+            background-color: rgba(5, 7, 15, 0.8);
+            backdrop-filter: blur(8px);
+            padding: 6px 12px;
+            border-radius: 8px;
             font-size: 11px;
-            font-weight: 600;
-            color: var(--accent);
+            font-weight: 700;
+            color: var(--accent-neon);
+            border: 1px solid rgba(0, 240, 255, 0.3);
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .game-info {
-            padding: 16px;
+            padding: 20px;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
             justify-content: space-between;
+            gap: 16px;
         }
 
         .game-info h3 {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 6px;
+            font-size: 18px;
+            font-weight: 700;
+            color: #fff;
         }
 
         .game-info p {
             color: var(--text-muted);
             font-size: 13px;
-            margin-bottom: 16px;
-            line-height: 1.4;
+            line-height: 1.5;
         }
 
-        /* In-App Game Arena Modal / View */
+        .play-btn {
+            background: rgba(0, 240, 255, 0.1);
+            color: var(--accent-neon);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            padding: 10px;
+            border-radius: 10px;
+            font-weight: 600;
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .game-card:hover .play-btn {
+            background: var(--accent-neon);
+            color: var(--bg-deep);
+            box-shadow: 0 0 15px var(--accent-neon);
+        }
+
+        /* Game Arena Modal / View */
         .game-arena {
-            background-color: var(--bg-card);
+            background-color: var(--bg-panel);
             border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 24px;
+            border-radius: 24px;
+            padding: 28px;
             display: flex;
             flex-direction: column;
-            min-height: 600px;
+            min-height: 650px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
         }
 
         .arena-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 12px;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
             border-bottom: 1px solid var(--border);
         }
 
         .arena-container {
             flex-grow: 1;
-            background-color: var(--bg-primary);
-            border-radius: 12px;
+            background-color: var(--bg-deep);
+            border-radius: 16px;
             border: 1px solid var(--border);
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
             overflow: hidden;
-            min-height: 500px;
+            min-height: 520px;
         }
 
-        /* Mini Game Styles Inside Arena */
-        /* 1. Skribbl Mini */
-        .skribbl-box {
+        /* POLISHED GAME MODULES */
+
+        /* 1. Skribbl Pro Drawing */
+        .skribbl-layout {
             display: flex;
             flex-direction: column;
             width: 100%;
             height: 100%;
-            padding: 20px;
-            gap: 15px;
+            padding: 24px;
+            gap: 20px;
         }
-        .canvas-toolbar {
+        .skribbl-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--bg-card);
+            padding: 14px 20px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+        .color-palette {
             display: flex;
             gap: 10px;
-            align-items: center;
         }
-        #drawCanvas {
-            background: white;
-            border-radius: 8px;
+        .color-swatch {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: transform 0.2s;
+        }
+        .color-swatch:hover, .color-swatch.active {
+            transform: scale(1.15);
+            border-color: white;
+        }
+        #skribblCanvas {
+            background: #ffffff;
+            border-radius: 12px;
             cursor: crosshair;
             flex-grow: 1;
             width: 100%;
-            height: 400px;
+            height: 380px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
         }
 
-        /* 2. Elon Musk Money */
-        .elon-container {
+        /* 2. Spend Elon Musk's Money Pro */
+        .elon-layout {
             width: 100%;
             height: 100%;
-            padding: 20px;
+            padding: 24px;
             overflow-y: auto;
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 24px;
         }
-        .net-worth-banner {
-            background: linear-gradient(135deg, #10b981, #059669);
+        .elon-header-banner {
+            background: linear-gradient(135deg, #059669, #10b981);
             color: white;
-            padding: 20px;
-            border-radius: 12px;
+            padding: 24px;
+            border-radius: 16px;
             text-align: center;
-            font-size: 28px;
-            font-weight: 750;
+            font-size: 32px;
+            font-weight: 800;
             position: sticky;
             top: 0;
             z-index: 10;
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
         }
-        .shop-grid {
+        .elon-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 16px;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 20px;
         }
-        .shop-item {
-            background: var(--bg-secondary);
+        .elon-card {
+            background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 16px;
+            border-radius: 16px;
+            padding: 20px;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
         }
-        .shop-item img {
-            width: 60px;
-            height: 60px;
-            margin-bottom: 10px;
+        .elon-card img {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
         }
 
-        /* 3. Infinite Craft Mini */
-        .craft-container {
+        /* 3. Infinite Craft Pro */
+        .craft-layout {
             display: flex;
             width: 100%;
             height: 100%;
-            gap: 20px;
-            padding: 20px;
+            gap: 24px;
+            padding: 24px;
         }
-        .craft-board {
+        .craft-workbench {
             flex-grow: 1;
-            background: var(--bg-secondary);
-            border-radius: 10px;
-            border: 1px dashed var(--border);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-        .craft-sidebar {
-            width: 240px;
-            background: var(--bg-secondary);
-            border-radius: 10px;
-            padding: 15px;
+            background: var(--bg-card);
+            border-radius: 16px;
+            border: 2px dashed var(--border);
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            max-height: 450px;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+            gap: 16px;
+        }
+        .craft-elements-panel {
+            width: 280px;
+            background: var(--bg-card);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-height: 480px;
             overflow-y: auto;
         }
-        .element-badge {
-            background: var(--bg-card);
+        .craft-item {
+            background: var(--bg-panel);
             border: 1px solid var(--border);
-            padding: 8px 12px;
-            border-radius: 6px;
+            padding: 12px 16px;
+            border-radius: 10px;
             cursor: pointer;
-            font-size: 13px;
-            text-align: center;
+            font-weight: 600;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
             transition: all 0.2s;
         }
-        .element-badge:hover {
-            border-color: var(--accent);
+        .craft-item:hover {
+            border-color: var(--accent-neon);
+            background: rgba(0, 240, 255, 0.05);
         }
 
-        /* 4. Ludo Mini Board */
-        .ludo-board {
-            width: 380px;
-            height: 380px;
-            background: #fff;
-            border-radius: 10px;
+        /* 4. Ludo Club Pro */
+        .ludo-layout {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            padding: 24px;
+            width: 100%;
+            height: 100%;
+        }
+        .ludo-board-pro {
+            width: 400px;
+            height: 400px;
+            background: #ffffff;
+            border-radius: 16px;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             grid-template-rows: repeat(3, 1fr);
-            padding: 15px;
-            gap: 10px;
+            padding: 16px;
+            gap: 12px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
         }
-        .ludo-box {
-            border-radius: 8px;
+        .ludo-quadrant {
+            border-radius: 12px;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
+            font-weight: 800;
             color: white;
-            font-size: 18px;
+            font-size: 15px;
+            gap: 8px;
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.2);
         }
 
-        /* 5. Carrom Mini */
-        .carrom-board {
-            width: 380px;
-            height: 380px;
+        /* 5. Carrom Pro */
+        .carrom-layout {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            padding: 24px;
+            width: 100%;
+            height: 100%;
+        }
+        .carrom-board-pro {
+            width: 400px;
+            height: 400px;
             background: #d4a373;
-            border: 12px solid #582f0e;
-            border-radius: 15px;
+            border: 16px solid #4a2511;
+            border-radius: 20px;
             position: relative;
-            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+            box-shadow: inset 0 0 30px rgba(0,0,0,0.6), 0 15px 35px rgba(0,0,0,0.5);
             display: flex;
             align-items: center;
             justify-content: center;
         }
-        .carrom-striker {
-            width: 35px;
-            height: 35px;
-            background: #ffffff;
+        .carrom-striker-pro {
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(circle, #ffffff 40%, #cccccc 100%);
             border-radius: 50%;
             position: absolute;
-            bottom: 40px;
+            bottom: 30px;
             left: 50%;
             transform: translateX(-50%);
-            cursor: grab;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+            border: 2px solid #333;
         }
-        .carrom-coin {
-            width: 25px;
-            height: 25px;
+        .carrom-coin-item {
+            width: 28px;
+            height: 28px;
             border-radius: 50%;
             position: absolute;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
         }
 
         @media(max-width: 900px) {
-            aside { width: 70px; }
+            aside { width: 75px; }
             aside .logo-area h1, aside .nav-links span { display: none; }
-            main { margin-left: 70px; }
+            main { margin-left: 75px; }
+            header { padding: 0 20px; }
+            .search-bar { width: 200px; }
         }
     </style>
 </head>
@@ -508,7 +663,7 @@
     <!-- Sidebar -->
     <aside>
         <div class="logo-area">
-            <i class="fa-solid fa-gamepad"></i>
+            <div class="logo-icon"><i class="fa-solid fa-gamepad"></i></div>
             <h1>Srijan's Games</h1>
         </div>
         <ul class="nav-links">
@@ -527,11 +682,11 @@
         <header>
             <div class="search-bar">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" id="searchInput" placeholder="Search games (Ludo, Skribbl, Craft)..." onkeyup="filterGames()">
+                <input type="text" id="searchInput" placeholder="Search arcade games..." onkeyup="filterGames()">
             </div>
             <div class="user-profile">
                 <div class="user-avatar">S</div>
-                <span style="font-weight: 600; font-size: 14px;">Srijan</span>
+                <span style="font-weight: 600; font-size: 14px; letter-spacing: 0.5px;">Srijan</span>
             </div>
         </header>
 
@@ -539,64 +694,63 @@
         <div id="home-view" class="view-section active">
             <div class="hero">
                 <div class="hero-content">
-                    <h2>Welcome to Srijan's Games</h2>
-                    <p>Experience the ultimate online arcade! Play Skribbl drawing challenges, build elements in Infinite Craft, spend Elon Musk's endless wealth, or enjoy classic Ludo & Carrom.</p>
-                    <button class="btn" onclick="switchView('library', event)"><i class="fa-solid fa-play"></i> Explore All Games</button>
+                    <h2>Welcome to Srijan's Neon Arcade</h2>
+                    <p>Immerse yourself in top-tier web gaming. Sketch masterpieces in Skribbl, build the universe in Infinite Craft, spend billions with Elon Musk, or dominate Ludo & Carrom.</p>
+                    <button class="btn-neon" onclick="switchView('library', event)"><i class="fa-solid fa-play"></i> Explore All Games</button>
                 </div>
-                <i class="fa-solid fa-trophy" style="font-size: 90px; color: var(--accent); opacity: 0.8;"></i>
             </div>
 
-            <div class="section-title">Featured Arcade Highlights</div>
+            <div class="section-title"><span>Featured Hits</span></div>
             <div class="game-grid">
                 <div class="game-card" onclick="openGame('skribbl')">
-                    <div class="game-thumb" style="background-image: linear-gradient(to top, rgba(0,0,0,0.8), transparent), url('https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=500&q=80')">
+                    <div class="game-thumb" style="background-image: url('https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80')">
                         <span class="game-badge">Multiplayer</span>
                     </div>
                     <div class="game-info">
                         <div>
                             <h3>Skribbl.io</h3>
-                            <p>Draw and guess words with players worldwide in real-time.</p>
+                            <p>Draw words and challenge your friends in real-time drawing battles.</p>
                         </div>
-                        <button class="btn" style="width: 100%; justify-content: center; padding: 8px;">Play Now</button>
+                        <button class="play-btn">Play Now <i class="fa-solid fa-arrow-right"></i></button>
                     </div>
                 </div>
 
                 <div class="game-card" onclick="openGame('elon')">
-                    <div class="game-thumb" style="background-image: linear-gradient(to top, rgba(0,0,0,0.8), transparent), url('https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=500&q=80')">
+                    <div class="game-thumb" style="background-image: url('https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=600&q=80')">
                         <span class="game-badge">Simulation</span>
                     </div>
                     <div class="game-info">
                         <div>
                             <h3>Spend Elon Musk's Money</h3>
-                            <p>Can you spend billions of dollars buying crazy items and companies?</p>
+                            <p>Try to drain endless billions by buying luxury yachts, mansions, and space rockets.</p>
                         </div>
-                        <button class="btn" style="width: 100%; justify-content: center; padding: 8px;">Play Now</button>
+                        <button class="play-btn">Play Now <i class="fa-solid fa-arrow-right"></i></button>
                     </div>
                 </div>
 
                 <div class="game-card" onclick="openGame('craft')">
-                    <div class="game-thumb" style="background-image: linear-gradient(to top, rgba(0,0,0,0.8), transparent), url('https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=500&q=80')">
+                    <div class="game-thumb" style="background-image: url('https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=600&q=80')">
                         <span class="game-badge">Puzzle</span>
                     </div>
                     <div class="game-info">
                         <div>
                             <h3>Infinite Craft</h3>
-                            <p>Combine basic elements like Water, Fire, Wind to create the universe.</p>
+                            <p>Combine basic elemental forces to discover legendary new creations.</p>
                         </div>
-                        <button class="btn" style="width: 100%; justify-content: center; padding: 8px;">Play Now</button>
+                        <button class="play-btn">Play Now <i class="fa-solid fa-arrow-right"></i></button>
                     </div>
                 </div>
 
                 <div class="game-card" onclick="openGame('ludo')">
-                    <div class="game-thumb" style="background-image: linear-gradient(to top, rgba(0,0,0,0.8), transparent), url('https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?auto=format&fit=crop&w=500&q=80')">
+                    <div class="game-thumb" style="background-image: url('https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?auto=format&fit=crop&w=600&q=80')">
                         <span class="game-badge">Board Game</span>
                     </div>
                     <div class="game-info">
                         <div>
                             <h3>Ludo Club</h3>
-                            <p>Roll the dice and race your tokens to home victory!</p>
+                            <p>Roll dice, capture opponent tokens, and race home to claim victory.</p>
                         </div>
-                        <button class="btn" style="width: 100%; justify-content: center; padding: 8px;">Play Now</button>
+                        <button class="play-btn">Play Now <i class="fa-solid fa-arrow-right"></i></button>
                     </div>
                 </div>
             </div>
@@ -604,27 +758,27 @@
 
         <!-- ALL GAMES LIBRARY VIEW -->
         <div id="library-view" class="view-section">
-            <div class="section-title">Complete Game Library</div>
+            <div class="section-title"><span>Complete Arcade Library</span></div>
             <div class="game-grid" id="fullGameGrid">
                 <div class="game-card" onclick="openGame('skribbl')" data-name="skribbl.io drawing">
-                    <div class="game-thumb" style="background-image: url('https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=500&q=80')"><span class="game-badge">Multiplayer</span></div>
-                    <div class="game-info"><h3>Skribbl.io</h3><p>Draw & guess words.</p><button class="btn" style="width:100%; justify-content:center;">Play</button></div>
+                    <div class="game-thumb" style="background-image: url('https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80')"><span class="game-badge">Multiplayer</span></div>
+                    <div class="game-info"><div><h3>Skribbl.io</h3><p>Draw & guess words.</p></div><button class="play-btn">Play</button></div>
                 </div>
                 <div class="game-card" onclick="openGame('elon')" data-name="spend elon musk money calculator">
-                    <div class="game-thumb" style="background-image: url('https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=500&q=80')"><span class="game-badge">Simulation</span></div>
-                    <div class="game-info"><h3>Spend Elon Musk's Money</h3><p>Shop with billions.</p><button class="btn" style="width:100%; justify-content:center;">Play</button></div>
+                    <div class="game-thumb" style="background-image: url('https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=600&q=80')"><span class="game-badge">Simulation</span></div>
+                    <div class="game-info"><div><h3>Spend Elon Musk's Money</h3><p>Shop with billions.</p></div><button class="play-btn">Play</button></div>
                 </div>
                 <div class="game-card" onclick="openGame('craft')" data-name="infinite craft puzzle">
-                    <div class="game-thumb" style="background-image: url('https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=500&q=80')"><span class="game-badge">Puzzle</span></div>
-                    <div class="game-info"><h3>Infinite Craft</h3><p>Combine elements.</p><button class="btn" style="width:100%; justify-content:center;">Play</button></div>
+                    <div class="game-thumb" style="background-image: url('https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=600&q=80')"><span class="game-badge">Puzzle</span></div>
+                    <div class="game-info"><div><h3>Infinite Craft</h3><p>Combine elements.</p></div><button class="play-btn">Play</button></div>
                 </div>
                 <div class="game-card" onclick="openGame('ludo')" data-name="ludo board dice game">
-                    <div class="game-thumb" style="background-image: url('https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?auto=format&fit=crop&w=500&q=80')"><span class="game-badge">Board</span></div>
-                    <div class="game-info"><h3>Ludo Club</h3><p>Roll dice & race.</p><button class="btn" style="width:100%; justify-content:center;">Play</button></div>
+                    <div class="game-thumb" style="background-image: url('https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?auto=format&fit=crop&w=600&q=80')"><span class="game-badge">Board</span></div>
+                    <div class="game-info"><div><h3>Ludo Club</h3><p>Roll dice & race.</p></div><button class="play-btn">Play</button></div>
                 </div>
                 <div class="game-card" onclick="openGame('carrom')" data-name="carrom board striker">
-                    <div class="game-thumb" style="background-image: url('https://images.unsplash.com/photo-1629901925121-8a141c2a42f4?auto=format&fit=crop&w=500&q=80')"><span class="game-badge">Sports</span></div>
-                    <div class="game-info"><h3>Carrom Board</h3><p>Strike coins into pockets.</p><button class="btn" style="width:100%; justify-content:center;">Play</button></div>
+                    <div class="game-thumb" style="background-image: url('https://images.unsplash.com/photo-1629901925121-8a141c2a42f4?auto=format&fit=crop&w=600&q=80')"><span class="game-badge">Sports</span></div>
+                    <div class="game-info"><div><h3>Carrom Board Pro</h3><p>Strike coins into pockets.</p></div><button class="play-btn">Play</button></div>
                 </div>
             </div>
         </div>
@@ -633,11 +787,11 @@
         <div id="arena-view" class="view-section">
             <div class="game-arena">
                 <div class="arena-header">
-                    <h3 id="arenaTitle" style="font-size: 18px; font-weight: 600;">Game Arena</h3>
-                    <button class="btn" style="background-color: var(--danger); padding: 6px 14px;" onclick="switchView('home', event)"><i class="fa-solid fa-xmark"></i> Exit Game</button>
+                    <h3 id="arenaTitle" style="font-size: 20px; font-weight: 700; color: var(--accent-neon);">Game Arena</h3>
+                    <button class="btn-neon" style="background: rgba(239, 68, 68, 0.2); border: 1px solid #ef4444; color: #ef4444; padding: 8px 16px;" onclick="switchView('home', event)"><i class="fa-solid fa-xmark"></i> Exit Game</button>
                 </div>
                 <div class="arena-container" id="arenaCanvasContainer">
-                    <!-- Dynamic Game Content Loads Here -->
+                    <!-- Interactive Game Rendered Dynamically -->
                 </div>
             </div>
         </div>
@@ -677,105 +831,117 @@
             container.innerHTML = '';
 
             if(gameKey === 'skribbl') {
-                title.innerText = "Skribbl.io - Drawing & Guessing";
+                title.innerText = "Skribbl.io - Drawing Studio";
                 container.innerHTML = `
-                    <div class="skribbl-box">
-                        <div class="canvas-toolbar">
-                            <span style="font-size: 14px; font-weight: 600;">Word to draw: <span style="color: var(--warning); font-size: 18px;">ELEPHANT</span></span>
-                            <button class="btn" style="padding: 6px 12px;" onclick="clearCanvas()">Clear Board</button>
+                    <div class="skribbl-layout">
+                        <div class="skribbl-top">
+                            <span style="font-size: 15px; font-weight: 600;">Secret Word: <span style="color: var(--accent-neon); font-size: 20px; font-weight: 800;">DRAGON</span></span>
+                            <div class="color-palette">
+                                <div class="color-swatch active" style="background: #000000;" onclick="setDrawColor('#000000', this)"></div>
+                                <div class="color-swatch" style="background: #ef4444;" onclick="setDrawColor('#ef4444', this)"></div>
+                                <div class="color-swatch" style="background: #10b981;" onclick="setDrawColor('#10b981', this)"></div>
+                                <div class="color-swatch" style="background: #3b82f6;" onclick="setDrawColor('#3b82f6', this)"></div>
+                                <div class="color-swatch" style="background: #f59e0b;" onclick="setDrawColor('#f59e0b', this)"></div>
+                            </div>
+                            <button class="btn-neon" style="padding: 6px 14px; font-size: 13px;" onclick="clearCanvas()">Clear Board</button>
                         </div>
-                        <canvas id="drawCanvas"></canvas>
+                        <canvas id="skribblCanvas"></canvas>
                     </div>`;
                 initSkribblCanvas();
             } 
             else if(gameKey === 'elon') {
                 title.innerText = "Spend Elon Musk's Money";
                 container.innerHTML = `
-                    <div class="elon-container">
-                        <div class="net-worth-banner" id="elonMoney">Remaining: $217,000,000,000</div>
-                        <div class="shop-grid">
-                            <div class="shop-item"><h4>Big Mac</h4><p>$5</p><button class="btn" onclick="buyElon(5, this)">Buy</button></div>
-                            <div class="shop-item"><h4>Video Game</h4><p>$60</p><button class="btn" onclick="buyElon(60, this)">Buy</button></div>
-                            <div class="shop-item"><h4>Tesla Car</h4><p>$50,000</p><button class="btn" onclick="buyElon(50000, this)">Buy</button></div>
-                            <div class="shop-item"><h4>Super Mansion</h4><p>$10,000,000</p><button class="btn" onclick="buyElon(10000000, this)">Buy</button></div>
-                            <div class="shop-item"><h4>Private Jet</h4><p>$60,000,000</p><button class="btn" onclick="buyElon(60000000, this)">Buy</button></div>
-                            <div class="shop-item"><h4>Space Rocket</h4><p>$50,000,000</p><button class="btn" onclick="buyElon(5000000000, this)">Buy</button></div>
+                    <div class="elon-layout">
+                        <div class="elon-header-banner" id="elonMoney">Remaining: $217,000,000,000</div>
+                        <div class="elon-grid">
+                            <div class="elon-card"><h4>Coffee Cup</h4><p style="color:var(--accent-neon); font-weight:700;">$5</p><button class="btn-neon" style="padding:6px 14px; width:100%; justify-content:center;" onclick="buyElon(5)">Buy</button></div>
+                            <div class="elon-card"><h4>Videogame Console</h4><p style="color:var(--accent-neon); font-weight:700;">$500</p><button class="btn-neon" style="padding:6px 14px; width:100%; justify-content:center;" onclick="buyElon(500)">Buy</button></div>
+                            <div class="elon-card"><h4>Tesla Cybertruck</h4><p style="color:var(--accent-neon); font-weight:700;">$100,000</p><button class="btn-neon" style="padding:6px 14px; width:100%; justify-content:center;" onclick="buyElon(100000)">Buy</button></div>
+                            <div class="elon-card"><h4>Luxury Yacht</h4><p style="color:var(--accent-neon); font-weight:700;">$75,000,000</p><button class="btn-neon" style="padding:6px 14px; width:100%; justify-content:center;" onclick="buyElon(75000000)">Buy</button></div>
+                            <div class="elon-card"><h4>Private Jet</h4><p style="color:var(--accent-neon); font-weight:700;">$60,000,000</p><button class="btn-neon" style="padding:6px 14px; width:100%; justify-content:center;" onclick="buyElon(60000000)">Buy</button></div>
+                            <div class="elon-card"><h4>Space Rocket</h4><p style="color:var(--accent-neon); font-weight:700;">$50,000,000,000</p><button class="btn-neon" style="padding:6px 14px; width:100%; justify-content:center;" onclick="buyElon(50000000000)">Buy</button></div>
                         </div>
                     </div>`;
             }
             else if(gameKey === 'craft') {
-                title.innerText = "Infinite Craft";
+                title.innerText = "Infinite Craft Studio";
                 container.innerHTML = `
-                    <div class="craft-container">
-                        <div class="craft-board" id="craftBoard">
-                            <p style="color: var(--text-muted); font-size: 14px;">Drag & drop elements here to combine!</p>
+                    <div class="craft-layout">
+                        <div class="craft-workbench" id="craftWorkbench">
+                            <i class="fa-solid fa-wand-magic-sparkles" style="font-size: 40px; color: var(--accent-neon);"></i>
+                            <h4 style="font-size: 18px;">Click elements to combine & build the universe!</h4>
                         </div>
-                        <div class="craft-sidebar">
-                            <h4 style="font-size: 14px; margin-bottom: 5px;">Elements</h4>
-                            <div class="element-badge" onclick="craftAdd('Water')">💧 Water</div>
-                            <div class="element-badge" onclick="craftAdd('Fire')">🔥 Fire</div>
-                            <div class="element-badge" onclick="craftAdd('Wind')">💨 Wind</div>
-                            <div class="element-badge" onclick="craftAdd('Earth')">🌍 Earth</div>
+                        <div class="craft-elements-panel">
+                            <h4 style="font-size: 14px; margin-bottom: 5px; color: var(--accent-neon);">Basic Elements</h4>
+                            <div class="craft-item" onclick="craftCombine('Water')">💧 Water</div>
+                            <div class="craft-item" onclick="craftCombine('Fire')">🔥 Fire</div>
+                            <div class="craft-item" onclick="craftCombine('Wind')">💨 Wind</div>
+                            <div class="craft-item" onclick="craftCombine('Earth')">🌍 Earth</div>
                         </div>
                     </div>`;
             }
             else if(gameKey === 'ludo') {
-                title.innerText = "Ludo Club - Classic Board";
+                title.innerText = "Ludo Club Championship";
                 container.innerHTML = `
-                    <div style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
-                        <div class="ludo-board">
-                            <div class="ludo-box" style="background: #ef4444;">RED HOME</div>
-                            <div class="ludo-box" style="background: var(--bg-secondary);">PATH</div>
-                            <div class="ludo-box" style="background: #3b82f6;">BLUE HOME</div>
-                            <div class="ludo-box" style="background: var(--bg-secondary);">PATH</div>
-                            <div class="ludo-box" style="background: var(--warning);">CENTER</div>
-                            <div class="ludo-box" style="background: var(--bg-secondary);">PATH</div>
-                            <div class="ludo-box" style="background: #10b981;">GREEN HOME</div>
-                            <div class="ludo-box" style="background: var(--bg-secondary);">PATH</div>
-                            <div class="ludo-box" style="background: #f59e0b;">YELLOW HOME</div>
+                    <div class="ludo-layout">
+                        <div class="ludo-board-pro">
+                            <div class="ludo-quadrant" style="background: #ef4444;"><i class="fa-solid fa-chess-pawn"></i> RED BASE</div>
+                            <div class="ludo-quadrant" style="background: #1a2234; color: var(--text-muted); font-size: 13px;">RACE TRACK</div>
+                            <div class="ludo-quadrant" style="background: #3b82f6;"><i class="fa-solid fa-chess-pawn"></i> BLUE BASE</div>
+                            <div class="ludo-quadrant" style="background: #1a2234; color: var(--text-muted); font-size: 13px;">RACE TRACK</div>
+                            <div class="ludo-quadrant" style="background: #f59e0b; color: #000;"><i class="fa-solid fa-crown"></i> HOME ZONE</div>
+                            <div class="ludo-quadrant" style="background: #1a2234; color: var(--text-muted); font-size: 13px;">RACE TRACK</div>
+                            <div class="ludo-quadrant" style="background: #10b981;"><i class="fa-solid fa-chess-pawn"></i> GREEN BASE</div>
+                            <div class="ludo-quadrant" style="background: #1a2234; color: var(--text-muted); font-size: 13px;">RACE TRACK</div>
+                            <div class="ludo-quadrant" style="background: #8b5cf6;"><i class="fa-solid fa-chess-pawn"></i> YELLOW BASE</div>
                         </div>
-                        <button class="btn" onclick="alert('🎲 You rolled a 6! Move your token.')">Roll Dice 🎲</button>
+                        <button class="btn-neon" onclick="alert('🎲 Dice Rolled: 6! You unlocked a token!')"><i class="fa-solid fa-dice"></i> Roll Dice</button>
                     </div>`;
             }
             else if(gameKey === 'carrom') {
                 title.innerText = "Carrom Board Pro";
                 container.innerHTML = `
-                    <div style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
-                        <div class="carrom-board">
-                            <div class="carrom-coin" style="background: #ef4444; top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
-                            <div class="carrom-coin" style="background: #f59e0b; top: 40%; left: 45%;"></div>
-                            <div class="carrom-coin" style="background: #ffffff; top: 60%; left: 55%;"></div>
-                            <div class="carrom-striker" id="striker"></div>
+                    <div class="carrom-layout">
+                        <div class="carrom-board-pro">
+                            <div class="carrom-coin-item" style="background: #ef4444; top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
+                            <div class="carrom-coin-item" style="background: #ffffff; top: 42%; left: 45%;"></div>
+                            <div class="carrom-coin-item" style="background: #f59e0b; top: 58%; left: 55%;"></div>
+                            <div class="carrom-striker-pro"></div>
                         </div>
-                        <p style="color: var(--text-muted); font-size: 13px;">Drag striker to aim & release to strike!</p>
+                        <p style="color: var(--text-muted); font-size: 14px;">Aim striker and strike coins into corner pockets!</p>
                     </div>`;
             }
         }
 
         // Skribbl Canvas Logic
-        let canvas, ctx, painting = false;
+        let canvas, ctx, painting = false, currentColor = '#000000';
         function initSkribblCanvas() {
-            canvas = document.getElementById('drawCanvas');
+            canvas = document.getElementById('skribblCanvas');
             if(!canvas) return;
             ctx = canvas.getContext('2d');
-            canvas.width = canvas.parentElement.clientWidth - 40;
-            canvas.height = 380;
+            canvas.width = canvas.parentElement.clientWidth - 48;
+            canvas.height = 360;
 
-            canvas.onmousedown = startPosition;
-            canvas.onmouseup = finishedPosition;
+            canvas.onmousedown = (e) => { painting = true; draw(e); };
+            canvas.onmouseup = () => { painting = false; ctx.beginPath(); };
             canvas.onmousemove = draw;
         }
-        function startPosition(e) { painting = true; draw(e); }
-        function finishedPosition() { painting = false; ctx.beginPath(); }
+        function setDrawColor(color, el) {
+            currentColor = color;
+            document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('active'));
+            el.classList.add('active');
+        }
         function draw(e) {
             if(!painting) return;
-            ctx.lineWidth = 4;
+            ctx.lineWidth = 5;
             ctx.lineCap = 'round';
-            ctx.strokeStyle = '#000';
-            ctx.lineTo(e.offsetX, e.offsetY);
+            ctx.strokeStyle = currentColor;
+            const rect = canvas.getBoundingClientRect();
+            ctx.lineTo(e.clientX - rect.left, e.clientY - rect.top);
             ctx.stroke();
             ctx.beginPath();
-            ctx.moveTo(e.offsetX, e.offsetY);
+            ctx.moveTo(e.clientX - rect.left, e.clientY - rect.top);
         }
         function clearCanvas() {
             if(ctx) ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -783,20 +949,22 @@
 
         // Elon Money Logic
         let elonMoneyVal = 217000000000;
-        function buyElon(cost, btn) {
+        function buyElon(cost) {
             if(elonMoneyVal >= cost) {
                 elonMoneyVal -= cost;
                 document.getElementById('elonMoney').innerText = "Remaining: $" + elonMoneyVal.toLocaleString();
             } else {
-                alert("Not enough money left!");
+                alert("You don't have enough billions left!");
             }
         }
 
         // Infinite Craft Logic
-        function craftAdd(elem) {
-            const board = document.getElementById('craftBoard');
-            board.innerHTML = `<p style="font-weight: 600; color: var(--success); font-size: 18px;">✨ Crafted combination with ${elem}!</p>`;
+        function craftCombine(elem) {
+            const bench = document.getElementById('craftWorkbench');
+            bench.innerHTML = `<i class="fa-solid fa-fire" style="font-size: 40px; color: var(--accent-pink);"></i><h4 style="font-size: 18px; color: #fff;">✨ Created Legendary Energy using ${elem}!</h4>`;
         }
     </script>
 </body>
 </html>
+
+
